@@ -1,0 +1,24 @@
+/Users/winterya/android/ecstore-robotium-test/bin/classes.dex : \
+/Users/winterya/android/ecstore-robotium-test/bin/classes/com/yahoo/mobile/client/android/ecstore/test/AccountTest.class \
+/Users/winterya/android/ecstore-robotium-test/bin/classes/com/yahoo/mobile/client/android/ecstore/test/BuildConfig.class \
+/Users/winterya/android/ecstore-robotium-test/bin/classes/com/yahoo/mobile/client/android/ecstore/test/category/CategoryTest.class \
+/Users/winterya/android/ecstore-robotium-test/bin/classes/com/yahoo/mobile/client/android/ecstore/test/CategoryListTest.class \
+/Users/winterya/android/ecstore-robotium-test/bin/classes/com/yahoo/mobile/client/android/ecstore/test/DiscoveryTest.class \
+/Users/winterya/android/ecstore-robotium-test/bin/classes/com/yahoo/mobile/client/android/ecstore/test/Manifest$permission.class \
+/Users/winterya/android/ecstore-robotium-test/bin/classes/com/yahoo/mobile/client/android/ecstore/test/Manifest.class \
+/Users/winterya/android/ecstore-robotium-test/bin/classes/com/yahoo/mobile/client/android/ecstore/test/myaccount/myaccountTest.class \
+/Users/winterya/android/ecstore-robotium-test/bin/classes/com/yahoo/mobile/client/android/ecstore/test/MyAccountTest.class \
+/Users/winterya/android/ecstore-robotium-test/bin/classes/com/yahoo/mobile/client/android/ecstore/test/ProductItemTest.class \
+/Users/winterya/android/ecstore-robotium-test/bin/classes/com/yahoo/mobile/client/android/ecstore/test/R$attr.class \
+/Users/winterya/android/ecstore-robotium-test/bin/classes/com/yahoo/mobile/client/android/ecstore/test/R$drawable.class \
+/Users/winterya/android/ecstore-robotium-test/bin/classes/com/yahoo/mobile/client/android/ecstore/test/R$string.class \
+/Users/winterya/android/ecstore-robotium-test/bin/classes/com/yahoo/mobile/client/android/ecstore/test/R.class \
+/Users/winterya/android/ecstore-robotium-test/bin/classes/com/yahoo/mobile/client/android/ecstore/test/search/SearchTest.class \
+/Users/winterya/android/ecstore-robotium-test/bin/classes/com/yahoo/mobile/client/android/ecstore/test/shoppingcart/ShoppingCartTest.class \
+/Users/winterya/android/ecstore-robotium-test/bin/classes/com/yahoo/mobile/client/android/ecstore/test/sidebar/SidebarTest.class \
+/Users/winterya/android/ecstore-robotium-test/bin/classes/com/yahoo/mobile/client/android/ecstore/test/tabbar/TabBarTest.class \
+/Users/winterya/android/ecstore-robotium-test/bin/classes/com/yahoo/mobile/client/android/ecstore/test/TabTest.class \
+/Users/winterya/android/ecstore-robotium-test/bin/classes/com/yahoo/mobile/client/android/ecstore/test/TestHelper.class \
+/Users/winterya/android/ecstore-robotium-test/bin/dexedLibs/robotium-solo-5.0.1-82cea5d13b01305dbe3c0d1d28c1753a.jar \
+/Users/winterya/android/ecstore-robotium-test/bin/dexedLibs/robotium-solo-5.0.1-javadoc-0b84e73b5195a9f2f56930c0fbc65ecb.jar \
+/Users/winterya/android/ecstore-robotium-test/bin/dexedLibs/android-junit-report-1.5.8-3a921f2565b09dff07c1ac00a8ef6739.jar \
