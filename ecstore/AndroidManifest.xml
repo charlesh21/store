@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yahoo.mobile.client.android.ecstore"
+    android:versionCode="5"
+    android:versionName="1.0.1" >
+
+    <supports-screens android:smallScreens="true"
+                      android:normalScreens="true"
+                      android:largeScreens="true"
+                      android:xlargeScreens="true"
+                      android:anyDensity="true" />
+
+    <!-- The account sdk required permission, you can copy to your app. -->
+    <permission
+        android:name="com.yahoo.mobile.client.android.permissions.YAHOO_INTER_APP"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.yahoo.mobile.client.android.permissions.YAHOO_INTER_APP" />
+    <!-- Uses for yahoo search SDK -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- Use for network request, required -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Use for android account manager, required -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <!-- Use for wake lock, optional -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- Use for send and receive sms, optional -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <!-- end of account sdk -->
+
+	<!--  zxing -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--  end of zxing -->
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <!-- TODO replace above two with next line after Android 4.2 -->
+    <!-- <uses-feature android:name="android.hardware.camera.any"/> -->
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
+    <!-- This excludes Google TV, which is unfortunately included by virtue of not requiring a camera -->
+    <uses-feature android:name="android.hardware.touchscreen" />
+    <!-- TODO make this not required again after android.hardware.camera.any is available -->
+
+
+    <!-- YI13N -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- Cache -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- Calendar Provider -->
+    <!-- uses-permission android:name="android.permission.READ_CALENDAR" / -->
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
+    <application
+        android:name=".ECStoreApplication"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true" >
+        <activity
+            android:name="com.yahoo.mobile.client.android.ecstore.ui.ECStoreActivity"
+            android:configChanges="screenSize|fontScale"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ECStore"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="com.yahoo.mobile.client.android.ecstore.ui.ECRestrictedAdultSettingActivity"
+            android:configChanges="fontScale"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ECStore"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="com.yahoo.mobile.client.android.ecstore.ui.ECCategoryEditorActivity"
+            android:configChanges="fontScale"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ECStore"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="com.yahoo.mobile.client.android.ecstore.ui.ECCreditsActivity"
+            android:configChanges="fontScale"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ECStore"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="com.yahoo.mobile.client.android.ecstore.ui.ECSplashActivity"
+            android:configChanges="fontScale"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ECStoreSplash"
+            android:windowSoftInputMode="adjustPan" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.yahoo.mobile.client.android.ecstore.ui.ECStorePreferenceActivity"
+            android:configChanges="fontScale"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ECStore"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="com.yahoo.mobile.client.android.ecstore.ui.ECBarCodeScanActivity"
+            android:configChanges="fontScale"
+            android:screenOrientation="portrait"
+            android:theme="@style/android:Theme.Holo.Light.NoActionBar"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity android:name="com.yahoo.mobile.client.android.ecstore.ui.ECSearchActivity" >
+        </activity>
+
+        <!-- for showing ecoupon reminders -->
+        <receiver android:name="com.yahoo.mobile.client.android.ecstore.receivers.ECouponReminderReceiver" />
+
+        <!-- zxing barcode library -->
+
+        <activity
+            android:name="com.google.zxing.client.android.CaptureActivity"
+            android:stateNotNeeded="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+
+        <!-- start post idea of user voice -->
+        <activity android:name="com.uservoice.uservoicesdk.activity.PortalActivity" />
+        <activity android:name="com.uservoice.uservoicesdk.activity.ForumActivity" />
+        <activity android:name="com.uservoice.uservoicesdk.activity.ArticleActivity" />
+        <activity android:name="com.uservoice.uservoicesdk.activity.TopicActivity" />
+        <activity
+            android:name="com.uservoice.uservoicesdk.activity.ContactActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name="com.uservoice.uservoicesdk.activity.PostIdeaActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Holo.Light" />
+
+        <!-- start of account sdk -->
+        <activity
+            android:name="com.yahoo.mobile.client.share.activity.AntiBotActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden"
+            android:label="@string/account_login_activity_title"
+            android:permission="com.yahoo.mobile.client.android.permissions.YAHOO_INTER_APP"
+            android:theme="@style/Theme.Account.Lavender" >
+        </activity>
+        <activity
+            android:name="com.yahoo.mobile.client.share.activity.LegalAndPrivacyActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden"
+            android:permission="com.yahoo.mobile.client.android.permissions.YAHOO_INTER_APP"
+            android:theme="@style/Theme.Account.Lavender"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity
+            android:name="com.yahoo.mobile.client.share.activity.Login2ndChallengeActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden"
+            android:permission="com.yahoo.mobile.client.android.permissions.YAHOO_INTER_APP"
+            android:theme="@style/Theme.Account.Lavender"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity
+            android:name="com.yahoo.mobile.client.share.activity.LoginActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden"
+            android:permission="com.yahoo.mobile.client.android.permissions.YAHOO_INTER_APP"
+            android:theme="@style/Theme.Account.Lavender"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity
+            android:name="com.yahoo.mobile.client.share.activity.PasswordRecoverActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden"
+            android:permission="com.yahoo.mobile.client.android.permissions.YAHOO_INTER_APP"
+            android:theme="@style/Theme.Account.Lavender"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity
+            android:name="com.yahoo.mobile.client.share.activity.SignUpActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden"
+            android:label="@string/account_login_activity_title"
+            android:permission="com.yahoo.mobile.client.android.permissions.YAHOO_INTER_APP"
+            android:theme="@style/Theme.Account.Lavender" >
+        </activity>
+        <activity
+            android:name="com.yahoo.mobile.client.share.activity.SSOActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden"
+            android:permission="com.yahoo.mobile.client.android.permissions.YAHOO_INTER_APP"
+            android:theme="@style/Theme.Account.Lavender"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="com.yahoo.mobile.client.share.accountmanager.activity.AccountServiceSelectActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/account_login_activity_title"
+            android:theme="@style/Theme.Account.Lavender" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.yahoo.mobile.client.share.accountmanager.AccountAuthenticatorService"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/account_authenticator" />
+        </service>
+
+        <receiver
+            android:name="com.yahoo.mobile.client.share.account.AccountChangedReceiver"
+            android:exported="true"
+            android:permission="com.yahoo.mobile.client.android.permissions.YAHOO_INTER_APP" >
+            <intent-filter>
+                <action android:name="com.yahoo.android.account.modified" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.yahoo.mobile.client.share.account.AccountRemovedReceiver"
+            android:exported="true"
+            android:permission="com.yahoo.mobile.client.android.permissions.YAHOO_INTER_APP" >
+            <intent-filter>
+                <action android:name="com.yahoo.android.account.removed" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.yahoo.mobile.client.share.accountmanager.AccountDataReceiver"
+            android:exported="true"
+            android:permission="com.yahoo.mobile.client.android.permissions.YAHOO_INTER_APP" >
+            <intent-filter>
+                <action android:name="com.yahoo.android.account.bcookie" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.yahoo.android.account.globalsalt" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <!-- end of account sdk -->
+    </application>
+
+</manifest>
