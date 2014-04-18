@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ShadowInfo</key>
+	<string>Add corresponding keys with ShadowOffset x y and ColorOffset R G B [A] for any shadow.</string>
+	<key>name</key>
+	<string>SidebarLightStyle</string>
+	<key>backgroundColor</key>
+	<string>0xf2f2f5</string>
+	<key>subnavBackgroundColor</key>
+	<string>255 255 255</string>
+	<key>badgeLabelFont</key>
+	<string>HelveticaNeue-Bold</string>
+	<key>badgeLabelSize</key>
+	<integer>12</integer>
+	<key>badgeLabelColor</key>
+	<string>0 0 0</string>
+	<key>cellAccessoryLabelFont</key>
+	<string>HelveticaNeue-Medium</string>
+	<key>cellAccessoryLabelSize</key>
+	<integer>12</integer>
+	<key>cellAccessoryLabelColor</key>
+	<string>0x4c4c4d</string>
+	<key>cellLabelFont</key>
+	<string>HelveticaNeue-Light</string>
+	<key>cellLabelSize</key>
+	<integer>18</integer>
+	<key>cellLabelColor</key>
+	<string>0 0 0</string>
+	<key>cellLabelHighlightColor</key>
+	<string>0 0 0</string>
+	<key>footerLabelFont</key>
+	<string>HelveticaNeue</string>
+	<key>footerLabelSize</key>
+	<integer>10</integer>
+	<key>footerLabelColor</key>
+	<string>0xabaeb7</string>
+	<key>headerTitleFont</key>
+	<string>HelveticaNeue-Medium</string>
+	<key>headerTitleSize</key>
+	<integer>12</integer>
+	<key>headerTitleColor</key>
+	<string>0x4c4c4d</string>
+	<key>identityBarTitleFont</key>
+	<string>HelveticaNeue-Medium</string>
+	<key>identityBarTitleSize</key>
+	<integer>14</integer>
+	<key>identityBarTitleColor</key>
+	<string>0 0 0</string>
+	<key>identityBarSubtitleFont</key>
+	<string>HelveticaNeue</string>
+	<key>identityBarSubtitleSize</key>
+	<integer>11</integer>
+	<key>identityBarSubtitleColor</key>
+	<string>0x565657</string>
+	<key>searchBarTextFieldFont</key>
+	<string>HelveticaNeue</string>
+	<key>searchBarTextFieldSize</key>
+	<integer>14</integer>
+	<key>searchBarTextFieldColor</key>
+	<string>0 0 0</string>
+	<key>subnavBarTitleFont</key>
+	<string>HelveticaNeue-Medium</string>
+	<key>subnavBarTitleSize</key>
+	<integer>17</integer>
+	<key>subnavBarTitleColor</key>
+	<string>0 0 0</string>
+	<key>subnavCellLabelFont</key>
+	<string>HelveticaNeue-Light</string>
+	<key>subnavCellLabelSize</key>
+	<integer>18</integer>
+	<key>subnavCellLabelColor</key>
+	<string>0 0 0</string>
+	<key>subnavCellLabelHighlightColor</key>
+	<string>0 0 0</string>
+	<key>containerBackgroundColor</key>
+	<string>0xffffffff</string>
+</dict>
+</plist>
