@@ -1,0 +1,77 @@
+html.ECSWV .headerBox {
+    display: none;
+}
+
+html.ECSWV body > div.header {
+    display: none;
+}
+
+html.ECSWV body > div > p {
+    display: none;
+}
+
+html.ECSWV .mstore {
+    padding-top: 0;
+}
+
+html.ECSWV .mstore.showSearch.showNav {
+    padding-top: 0;
+}
+
+html.ECSWV .descback {
+    display: none;
+}
+
+html.ECSWV .goBack {
+    display: none;
+}
+
+html.ECSWV body {
+    margin-top: 0;
+}
+
+html.ECSWVPC {
+    -webkit-text-size-adjust: none;
+}
+
+html.ECSWV body.psd_new #hd {
+    width: 100%;
+    overflow: hidden;
+}
+
+html.ECSWV body.psd_new #ygmalogo {
+    display: none;
+}
+
+html.ECSWV body.psd_new #ypsvauuh {
+    display: none;
+}
+
+html.ECSWV body.psd_new #container {
+    display: none;
+}
+
+html.ECSWV body.psd_new #ypsdnew2 .bd {
+    padding: 0;
+}
+
+html.ECSWV body.psd_new #ypsdnew2 .bd .bd ul {
+    display: none;
+}
+
+html.ECSWV body.psd_new form {
+    display: none;
+}
+
+html.ECSWV body.psd_new #ft {
+    display: none;
+}
+
+html.ECSWV body.psd_new #doc2 {
+    min-width: 0;
+    width: auto;
+}
+
+html.ECSWV div[data-sec="step3"] + ul {
+    display: none;
+}
