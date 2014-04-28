@@ -15,6 +15,9 @@ var Assert = {};
 #import "smoke/Action/ItemPage.js"
 #import "smoke/Action/ShoppingCartlist.js"
 #import "smoke/Action/StoreListings.js"
+#import "Function/Action/Category.js"
+#import "Function/Action/Search.js"
+#import "Function/Action/Welcome.js"
 
 //Assert
 #import "smoke/Assert/FavoriteStores.js"
@@ -32,6 +35,9 @@ var Assert = {};
 #import "smoke/Assert/ShoppingCartlist.js"
 #import "smoke/Assert/StoreListings.js"
 #import "smoke/Assert/Search.js"
+#import "Function/Assert/Category.js"
+#import "Function/Assert/Search.js"
+#import "Function/Assert/Welcome.js"
 
 var target = UIATarget.localTarget();
 var app = target.frontMostApp();
@@ -52,6 +58,6 @@ var tabBarMyAccount = tabBar.buttons()[4];
 obj.scrollDowns = function (total) {
     for (var j = 0; j < total; j++) {
         $.delay(sleep);
-        mainWindow.collectionViews()[0].scrollDown();
+        app.mainWindow().collectionViews()[0].scrollDown();
     }
 };

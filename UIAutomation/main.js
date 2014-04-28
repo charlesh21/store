@@ -1,9 +1,9 @@
-#import "lib/mechanic.js"
 #import "lib/tuneup/tuneup.js"
+#import "lib/mechanic.js"
 #import "config.js"
 
 //Demo
-//#import "smoke/checkout.js"
+#import "smoke/checkout.js"
 //#import "smoke/search.js"
 //#import "smoke/myaccount.js"
 //#import "smoke/discovery.js"
@@ -22,6 +22,3 @@
 //#import "smoke/shoppingCartlist.js"
 
 //functional
-#import "Function/welcome.js"
-#import "Function/Category.js"
-#import "Function/Search.js"
