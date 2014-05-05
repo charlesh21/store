@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>store_key</key>
+	<string>9YWCP3HXTnGd0SKzMSBqyJ</string>
+	<key>env</key>
+	<string>prod</string>
+	<key>cache_time</key>
+	<string>43200</string>
+</dict>
+</plist>

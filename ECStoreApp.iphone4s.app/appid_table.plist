@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>304158842</key>
+	<dict>
+		<key>urlsheme</key>
+		<string>yahoo://</string>
+	</dict>
+	<key>355995557</key>
+	<dict>
+		<key>urlscheme</key>
+		<string>ybaseball://</string>
+	</dict>
+	<key>328415391</key>
+	<dict>
+		<key>urlscheme</key>
+		<string>yfootball://</string>
+	</dict>
+	<key>328412701</key>
+	<dict>
+		<key>urlscheme</key>
+		<string>yfinance://</string>
+	</dict>
+	<key>328407587</key>
+	<dict>
+		<key>urlscheme</key>
+		<string>flickr://</string>
+	</dict>
+	<key>406436404</key>
+	<dict>
+		<key>urlscheme</key>
+		<string>intonow://</string>
+	</dict>
+	<key>577586159</key>
+	<dict>
+		<key>urlscheme</key>
+		<string>ymail://</string>
+	</dict>
+	<key>309219097</key>
+	<dict>
+		<key>urlscheme</key>
+		<string>ymsgr://</string>
+	</dict>
+	<key>361071600</key>
+	<dict>
+		<key>urlscheme</key>
+		<string>ysearch://</string>
+	</dict>
+	<key>286058814</key>
+	<dict>
+		<key>urlscheme</key>
+		<string>ysportacular://</string>
+	</dict>
+	<key>628677149</key>
+	<dict>
+		<key>urlscheme</key>
+		<string>yweather://</string>
+	</dict>
+</dict>
+</plist>
