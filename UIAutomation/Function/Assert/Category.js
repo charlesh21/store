@@ -61,7 +61,7 @@ Assert.categoriesList = function () {
         "家電/視聽",
         "相機/ 手機/玩具",
         "美食/ 保健/飲料",
-        "日用品/ 清潔/寵物",
+        "醫療/ 日用品/寵物",
         "居家/ 寢具/傢俱",
         "運動/ 戶外/休閒",
         "圖書/ 文具/影音"
@@ -175,20 +175,21 @@ Assert.elementsOnFilterScreen = function () {
 
 /**
   * Verify the price of product show correct.
-  * This function need pas three parameters.
+  * This function need pas two parameters.
   * productIndex, is which product you want verify, 
   * priceIndex, is the price index, sometimes different product priceIndex is different.
-  * sPrice, is expect price value.
 **/
- Assert.productPriceShowCorrect = function (productIndex, priceIndex, sPrice) {
+ Assert.productPriceShowCorrect = function (productIndex, priceIndex) {
  	$.delay(sleep);
  	var collectionViews = app.mainWindow().collectionViews()[0];
 
  	var itemCell = collectionViews.cells()[productIndex];
  	var priceLocate = itemCell.staticTexts()[priceIndex];
- 	var priceValue = priceLocate.name();
+ 	var priceValue = priceLocate.value();
 
- 	assertEquals(sPrice, priceValue);
+ 	//Use the regex to match the first characters is $
+ 	var stringRe = /^\$/g.test(priceValue);
+ 	assertTrue(stringRe, "The first characters not $");
  };
 
 /**
@@ -196,17 +197,17 @@ Assert.elementsOnFilterScreen = function () {
   * This function need pas three parameters.
   * productIndex, is which product you want verify, 
   * ratingIndex, is the rating index, sometimes different product rating index is different.
-  * sRatingValue, is expect rating value.
 **/
- Assert.storeRatingShowCorrect = function (productIndex, ratingIndex, sRatingValue) {
+ Assert.storeRatingShowCorrect = function (productIndex, ratingIndex) {
  	$.delay(sleep);
  	var collectionViews = app.mainWindow().collectionViews()[0];
 
  	var itemCell = collectionViews.cells()[productIndex];
  	var ratingIndexValue = itemCell.staticTexts()[ratingIndex];
- 	var ratingValue = ratingIndexValue.name();
+ 	var ratingValue = ratingIndexValue.value();
  	
- 	assertEquals(sRatingValue, ratingValue);
+ 	//Get the value of rating, if this value is less than 10 then return True.
+ 	assertTrue(ratingValue <= 10, "Rating value isnot correct, the value is greater than 10");
  };
 
  Assert.favoritesIconShowCorrect = function (productIndex) {
@@ -220,18 +221,153 @@ Assert.elementsOnFilterScreen = function () {
  	assertEquals("icon star", favoritesIconName);
  };
 
- Assert.logInWindowShowCorrect = function () {
+ Assert.logInWindowShowCorrect = function (sLogin, sForgotPassword, sCreateAccount) {
  	$.delay(sleep);
 
  	var yahooLogoName = app.mainWindow().images()[0].name();
  	assertEquals("yaccounts_logo_purple", yahooLogoName);
 
  	var loginButtonName = app.mainWindow().buttons()[0].name();
- 	assertEquals("Sign In", loginButtonName);
+ 	assertEquals(sLogin, loginButtonName);
 
  	var forgotPasswordButtonName = app.mainWindow().buttons()[1].name();
- 	assertEquals("Forgot password or ID?", forgotPasswordButtonName);
+ 	assertEquals(sForgotPassword, forgotPasswordButtonName);
 
  	var createAccountButtonName = app.mainWindow().buttons()[2].name();
- 	assertEquals("Create Account", createAccountButtonName);
+ 	assertEquals(sCreateAccount, createAccountButtonName);
+ };
+
+ Assert.userLoginHistoryScreen = function (sNavBarName, sUserName) {
+ 	$.delay(sleep);
+
+ 	//Verify navigation bar name show correct.
+ 	var navBarName = app.navigationBar().name();
+ 	assertEquals(sNavBarName, navBarName);
+
+ 	//Verify user name show correct.
+ 	var tableview = app.mainWindow().staticTexts()[1];
+ 	var username = tableview.name();
+ 	assertEquals(sUserName, username);
+ };
+
+ Assert.productAddedToMyFavoritesScreen = function (productName) {
+ 	$.delay(4);
+ 	var collectionView = app.mainWindow().collectionViews()[0];
+ 	var productCell = collectionView.cells()[0];
+
+ 	assertEquals(productName, productCell.name());
+ };
+
+ Assert.productRemovedFromMyFavoritesScreen = function (productName) {
+ 	$.delay(4);
+ 	var collectionView = app.mainWindow().collectionViews()[0];
+ 	var productCell = collectionView.cells()[0];
+
+ 	assertNotEquals(productName, productCell.name());
+ };
+
+ Assert.buttonOnTabBarShowCorrect = function (buttonName) {
+ 	$.delay(sleep);
+ 	var tabBar = app.mainWindow().tabBar();
+    var button = tabBar.buttons()[buttonName];
+
+    assertTrue(button.isVisible(), buttonName + " not exist");
+ };
+
+ Assert.buttonExist = function (elements) {
+ 	if (elements.isVisible() == true) {
+ 		UIALogger.logMessage(elements.name() + " button exists on screen.");
+ 	}
+ 	else {
+ 		UIALogger.logError(elements.name() + " Cannot found button.");
+ 	}
+ 	return true;
+ };
+
+ Assert.checkButtonExist = function (elements) {
+ 	$.delay(sleep);
+ 	assertTrue(Assert.buttonExist(elements), elements.name() + " button not exists");
+ };
+
+ Assert.itemCellShowCorrectOnCategoryScreen = function (itemName) {
+ 	$.delay(sleep);
+ 	var itemCell = app.mainWindow().tableViews()[0].cells()[itemName];
+ 	var itemCellName = itemCell.name();
+
+ 	assertEquals(itemName, itemCellName);
+ };
+
+ Assert.allCategoryItemShowCorrect = function (i, itemName) {
+ 	$.delay(sleep);
+    var itemCell = app.mainWindow().tableViews()[1].cells()[i];
+ 	var tabItemName = itemCell.name();
+
+ 	assertEquals(itemName, tabItemName);
+ };
+
+ Assert.elementsShouldContainText = function (elements, keyword) {
+    $.delay(sleep);
+    var elementsName = elements.name();
+    
+    assertTrue(elementsName.indexOf(keyword) >= 0, elementsName + " not contain text: " + keyword);
+ };
+
+ Assert.numberOfItemsShowCorrect = function (elements) {
+    $.delay(sleep);
+    var numberOfItems = elements.name();
+    UIALogger.logMessage(numberOfItems);
+
+    var stringRe = /\d/g.test(numberOfItems);
+
+    assertTrue(stringRe, "elements: " + numberOfItems + " not contains numbers");
+ };
+
+ Assert.advancedButtonsOrder = function () {
+    $.delay(sleep);
+    var segmentedControl = app.mainWindow().segmentedControls()[0];
+    var button1 = segmentedControl.buttons()[0];
+    var button2 = segmentedControl.buttons()[1];
+    var button3 = segmentedControl.buttons()[2];
+
+    var button1Name = button1.name();
+    var button2Name = button2.name();
+    var button3Name = button3.name();
+
+    assertEquals(button1Name, "排序");
+    assertEquals(button2Name, "瀏覽模式");
+    assertEquals(button3Name, "篩選");
+ };
+
+ Assert.successfulSwitchToPhotoGridView = function () {
+    $.delay(sleep);
+
+    //Get first cell and second cell X and Y
+    var firstCell = app.mainWindow().collectionViews()[0].cells()[1];
+    var firstCellX = Action.getElementsOriginXString(firstCell);
+    var firstCellY = Action.getElementsOriginYString(firstCell);
+
+    var secondCell = app.mainWindow().collectionViews()[0].cells()[2];
+    var secondCellX = Action.getElementsOriginXString(secondCell);
+    var secondCellY = Action.getElementsOriginYString(secondCell);
+
+    //if first cellY == secondCellY then these two cell place at same line.
+    //So collectionview successful switch to photo grid view.
+    assertEquals(firstCellY, secondCellY);
+ };
+
+ Assert.successfulSwitchToListingView = function () {
+    $.delay(sleep);
+
+    //Get first cell and second cell X and height
+    var firstCell = app.mainWindow().collectionViews()[0].cells()[1];
+    var firstCellX = Action.getElementsOriginXString(firstCell);
+    var firstCellHeight = Action.getElementsHeightString(firstCell);
+
+    var secondCell = app.mainWindow().collectionViews()[0].cells()[2];
+    var secondCellX = Action.getElementsOriginXString(secondCell);
+    var secondCellHeight = Action.getElementsHeightString(secondCell);
+
+    //verify success switch to listing veiw.
+    assertEquals(firstCellX, secondCellX);
+    assertTrue(firstCellHeight == secondCellHeight && firstCellHeight < 130 && secondCellHeight < 130, "Switch to listing mode failed.");
  };

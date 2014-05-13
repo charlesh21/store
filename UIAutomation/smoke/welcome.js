@@ -1,5 +1,6 @@
 test("[1952832] user can access welcome screen", function () {
-    Assert.Welcome();
+    //Assert.Welcome();
     Action.goFavoriteCategories();
     Assert.FavoriteCategories();
+    Action.goDiscoveryStream();
 });

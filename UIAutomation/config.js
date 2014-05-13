@@ -15,6 +15,9 @@ var Assert = {};
 #import "smoke/Action/ItemPage.js"
 #import "smoke/Action/ShoppingCartlist.js"
 #import "smoke/Action/StoreListings.js"
+#import "Function/Action/Category.js"
+#import "Function/Action/Search.js"
+#import "Function/Action/Welcome.js"
 
 //Assert
 #import "smoke/Assert/FavoriteStores.js"
@@ -32,22 +35,25 @@ var Assert = {};
 #import "smoke/Assert/ShoppingCartlist.js"
 #import "smoke/Assert/StoreListings.js"
 #import "smoke/Assert/Search.js"
+#import "Function/Assert/Category.js"
+#import "Function/Assert/Search.js"
+#import "Function/Assert/Welcome.js"
 
 var target = UIATarget.localTarget();
 var app = target.frontMostApp();
-var tabBar = app.tabBar();
+var tBar = app.tabBar();
 var window = app.mainWindow();
 var navBar = app.navigationBar();
 var sBar = app.statusBar();
 
-var obj = {};
-var sleep = 2;
+var tabBarDiscoveryStream = tBar.buttons()[0];
+var tabBarFavoriteStores = tBar.buttons()[1];
+var tabBarCategoriesNavigation = tBar.buttons()[2];
+var tabBarShoppingCart = tBar.buttons()[3];
+var tabBarMyAccount = tBar.buttons()[4];
 
-var tabBarDiscoveryStream = tabBar.buttons()[0];
-var tabBarFavoriteStores = tabBar.buttons()[1];
-var tabBarCategoriesNavigation = tabBar.buttons()[2];
-var tabBarShoppingCart = tabBar.buttons()[3];
-var tabBarMyAccount = tabBar.buttons()[4];
+var obj = {};
+var sleep = 0.5;
 
 obj.scrollDowns = function (total) {
     for (var j = 0; j < total; j++) {
@@ -59,7 +65,7 @@ obj.checkInstanceExist = function (instance) {
     var errorTimes = 0;
     while (!instance && errorTimes < 50) {
         errorTimes++;
-        target.delay(1);
+        target.delay(sleep);
     }
 };
 obj.logDevice = function () {

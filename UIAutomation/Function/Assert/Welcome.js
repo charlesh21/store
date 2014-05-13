@@ -1,5 +1,5 @@
 Assert.verifyWelcomeScreen = function () {
-	$.delay(4);
+    $.delay(4);
 
 	//Verify "歡迎" show correct.
 	var sWelcomeName = app.mainWindow().staticTexts()[0].name();
@@ -30,7 +30,7 @@ Assert.personalCategoryScreen = function () {
         "家電/視聽",
         "相機/ 手機/玩具",
         "美食/ 保健/飲料",
-        "日用品/ 清潔/寵物",
+        "醫療/ 日用品/寵物",
         "居家/ 寢具/傢俱",
         "運動/ 戶外/休閒",
         "圖書/ 文具/影音"

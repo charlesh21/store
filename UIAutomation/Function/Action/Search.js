@@ -11,7 +11,6 @@ Action.tapBackOnSearchBar = function () {
     tapBackOnSearchBar.tap();
 };
 
-//Click search, and input
 Action.searchBarInput = function (skey) {
     $.delay(sleep);
     var app = target.frontMostApp();
@@ -20,26 +19,25 @@ Action.searchBarInput = function (skey) {
 
 Action.tapIconPlusOnTableView = function () {
     $.delay(sleep);
-    var tapIconPlusOnTableView = app.mainWindow().tableViews()[1].cells()[0].buttons()[0];
+    var tapIconPlusOnTableView = app.mainWindow().tableViews()[1].cells()[1].buttons()[0];
     tapIconPlusOnTableView.tap();
 };
 
 //Click the icon plue different twice
 Action.clickOnTheDifferentIconPlus = function () {
     $.delay(sleep);
-    var clickOnTheDifferentIconPlus = app.mainWindow().tableViews()[1].cells()[1].buttons()[0];
+    var clickOnTheDifferentIconPlus = app.mainWindow().tableViews()[1].cells()[0].buttons()[0];
     clickOnTheDifferentIconPlus.tap();
 };
 
 Action.tapKeyboardSearch = function () {
     $.delay(sleep);
-    var app = target.frontMostApp();
-    var tapKeyboardSearch = app.keyboard().buttons()["Search"];
+    var tapKeyboardSearch = app.keyboard().buttons()["搜尋"];
     tapKeyboardSearch.tap();
 };
 
-
 Action.tapClean = function () {
+    $.delay(sleep);
     var tapClean = app.mainWindow().textFields()[0].buttons()[0];
     tapClean.tap();
 };
@@ -54,12 +52,13 @@ Action.tapKeyboardDelete = function () {
 
 //clean Searches
 Action.cleanSearches = function () {
+    $.delay(sleep);
     var menuButton = app.navigationBar().buttons()[1];
     menuButton.tap();
     $.delay(sleep);
     
     var tableViews = app.windows()[0].tableViews()[0];
-    var tableCells = tableViews.cells()[9];
+    var tableCells = tableViews.cells()["設定"];
     tableCells.tap();
     $.delay(sleep);
     
@@ -77,91 +76,57 @@ Action.cleanSearches = function () {
     var closeButton = app.windows()[0].navigationBar().buttons()[1];
     closeButton.tap();
     menuButton.tap();
-    
 };
 
-
- /**
-Action.tapMeunOnNavBar = function () {
-    $.delay(sleep);
-    var tapMeunOnNavBar = app.navigationBar().buttons()[1];
-    tapMeunOnNavBar.tap();
-    app.mainWindow();
-};
-
-Action.tapSettingOnTableViews = function () {
-    var tapSettingOnTableViews = app.mainWindow().tableViews()[0].cells()[9].staticTexts()[0];
-    tapSettingOnTableViews.tap();
-    $.delay(sleep);
-};
-
-Action.tapCleanOnCollectionViews = function () {
-    $.delay(sleep);
-    $.delay(sleep);
-    app.mainWindows().collectionViews()[0].cells()[1].tap();;
-};
-**/
-/**
-Action.searchBarInputChinese = function () {
+Action.searchBarInputChinese = function (sValue) {
     $.delay(sleep);
     var app = target.frontMostApp();
-    var searchField = app.mainWindow().textFields()
-    var sValue = "东"
+    var searchField = app.mainWindow().textFields()[0];
     searchField.setValue(sValue);
 };
-**
-/**
+
 Action.tapReturnOnSearchBar = function () {
     $.delay(sleep);
-     app.mainWindow().buttons()[1].tap();
-};
-
-Action.doubleClickReturnButton = function () {
-    $.delay(sleep);
-    app.mainWindow().navigationBar().buttons()[0].tap();
-    $.delay(5);
-     app.mainWindow().buttons()[0].tap();
+    app.mainWindow().buttons()[0].tap();
 };
 
 Action.tapIconPlusOnFirstFloorTableView = function () {
     $.delay(sleep);
-     app.mainWindow().tableViews()[0].cells()[0].buttons()[0].tap();
-};
+    var tapIconPlusOnFirstFloorTableView = app.mainWindow().tableViews()[0].cells()[1].buttons()[0];
+    tapIconPlusOnFirstFloorTableView.tap();
+ };
 
- 
 //Click the icon plue different twice
 Action.clickOnTheDifferentIconPlusOnFirstFloorTableView = function () {
     $.delay(sleep);
-    app.mainWindow().tableViews()[0].cells()[0].buttons()[0].tap();
-    $.delay(sleep);
-    app.mainWindow().tableViews()[0].cells()[0].buttons()[0].tap();
+    var  clickOnTheDifferentIconPlusOnFirstFloorTableView = app.mainWindow().tableViews()[0].cells()[0].buttons()[0];
+    clickOnTheDifferentIconPlusOnFirstFloorTableView.tap();
 };
-**/
 
 Action.goBackOnSearchPage = function () {
-	$.delay(sleep);
-	var goBack = app.navigationBar().buttons()[2];
-	goBack.tap();
+    $.delay(sleep);
+    var goBack = app.navigationBar().buttons()[2];
+    goBack.tap();
 };
 
 //04-23-2014
-Action.goApparelCategory = function (){
+Action.goApparelCategoryWhenSearchSettingOpen = function (){
     $.delay(sleep);
     app.tabBar().buttons()[2].tap();
     
     $.delay(sleep);
-    app.mainWindow().tableViews()[1].cells()[0].tap();
+    app.mainWindow().tableViews()[0].cells()[0].tap();
 };
 
 Action.backToAllCategory = function () {
-	$.delay(sleep);
-	var backToAllCategory = app.navigationBar().buttons()[1];
-	backToAllCategory.tap();
+    $.delay(sleep);
+    var backToAllCategory = app.navigationBar().buttons()[1];
+    backToAllCategory.tap();
 };
 
 Action.goDiscoveryStream = function () {
-	$.delay(sleep);
-	app.tabBar().buttons()[0].tap();
+    $.delay(sleep);
+    app.tabBar().buttons()[0].tap();
 };
 
 Action.tapSearchIconOnApparelCategory = function () {
@@ -169,4 +134,40 @@ Action.tapSearchIconOnApparelCategory = function () {
     tapSearchIconOnApparelCategory.tap();
 };
 
+//04-25-2014
+Action.goFashionWomenClothingCategory = function () {
+    $.delay(sleep);
+    var goFashionWomenClothingCategory = app.mainWindow().collectionViews()[0].cells()[3];
+    goFashionWomenClothingCategory.tap();
+};
 
+Action.tapBackSubclassification = function () {
+    $.delay(sleep);
+    var tapBackSubclassification = app.navigationBar().buttons()[1];
+    tapBackSubclassification.tap();
+};
+
+Action.goCoatCategory = function () {
+    $.delay(sleep);
+    var goCoatCategory = app.mainWindow().collectionViews()[0].cells()[1];
+    goCoatCategory.tap();
+};
+
+//04-28-2014
+Action.tapGoodsButton = function () {
+    $.delay(sleep);
+    var tapGoodsButton = app.mainWindow().collectionViews()[0].cells()[0].buttons()[1];
+    tapGoodsButton.tap();
+};
+
+//05-06-2014
+Action.englishInputMethod = function () {
+    $.delay(sleep);  
+    //veriy keyboard has a "Delete" button
+    while(app.keyboard().keys()["Delete"].isEnabled() != 1)
+    {
+        var tapSwitchInputMethod = app.keyboard().buttons()["下一個鍵盤"];
+        tapSwitchInputMethod.tap();
+        $.delay(sleep);
+    }
+};

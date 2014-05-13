@@ -1,5 +1,6 @@
 Action.goFavoriteStores = function () {
     $.delay(sleep);
+    obj.checkInstanceExist(tabBarFavoriteStores.tap);
     tabBarFavoriteStores.tap();
 };
 Action.tapFavoriteStores = function () {

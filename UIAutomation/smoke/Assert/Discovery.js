@@ -1,4 +1,3 @@
 Assert.Discovery = function () {
-    assertEquals(3, navBar.buttons()
-        .length);
+    assertEquals(3, navBar.buttons().length);
 };

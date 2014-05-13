@@ -22,6 +22,7 @@ Assert.checkReturnPageDisplay =function (text) {
 
 //Check if search Suggestions
 Assert.autoCompletePageDisplay = function () {
+    $.delay(sleep);
     var mainWindow = app.mainWindow();
     $.delay(5);
     assertTrue(app.mainWindow().tableViews()[1].cells().length<20);
@@ -31,37 +32,29 @@ Assert.checkIconPlusDisplay = function () {
     var mainWindow = app.mainWindow();
     $.delay(sleep);
     assertEquals("icon plus", app.mainWindow().tableViews()[1].cells()[0].buttons()[0].name());
-  };
-
-Assert.searchResultsPage = function () {
-    $.delay(sleep);
-     UIALogger.logMessage(app.navigationBar().name());
-    assertEquals("\"hp\"", app.navigationBar().name());
-   
 };
 
 //check whether there is a key
 Assert.checkCleanIconDisplay = function () {
+    $.delay(sleep);
     var mainWindow = app.mainWindow();
     var cleanIcon = app.mainWindow().textFields()[0].buttons()[0].isEnabled();
-    if (cleanIcon != 1){
-        UIALogger.logPass("No clean icon");
-    }
-    else{
-        UIALogger.logFail("clean icon still present");
-    }
+    assertNotEquals(1,cleanIcon,"check clean icon");
 };
 
 Assert.checkCleanIcon = function () {
-    assertEquals("Clear text",app.mainWindow().textFields()[0].buttons()[0].name());
+    $.delay(sleep);
+    assertEquals("清除文字",app.mainWindow().textFields()[0].buttons()[0].name());
 };
 
 //Verify whether the clear one character at a time
 Assert.checkEveryDelete = function () {
+    $.delay(sleep);
     assertEquals("123",app.mainWindow().textFields()[0].value());
 };
 
 Assert.checkSearchPage = function (skey) {
+    $.delay(sleep);
     assertEquals(skey, app.mainWindow().navigationBar().name());
 };
 
@@ -80,8 +73,44 @@ Assert.searchButtonOnApparelCategoryIsEnabled = function () {
     assertEquals(1, searchButtonValue);
 };
 
+//04-24-2014
+Assert.tapIconPlusOnTableViewCheckTextIsEnabled = function (sKey) {
+    $.delay(sleep);
+    //To obtain search box text and check search box text show the correct
+    var textValue = app.mainWindow().textFields()[0].value();
+    assertEquals(sKey,textValue);
+};
 
+Assert.clickOnTheDifferentIconPlusCheckTextIsEnabled = function (sKey) {
+    $.delay(sleep);
+    //To obtain search box text and check search box text show the correct
+    var textValue = app.mainWindow().textFields()[0].value();
+    assertEquals(sKey,textValue);
+};
 
+Assert.clickOnTheDifferentIconPlusOnFirstFloorTableView = function (dKey) {
+    $.delay(sleep);
+    //To obtain search box text and check search box text show the correct
+    var textValue = app.mainWindow().textFields()[0].value();
+    assertEquals(dKey,textValue);
+};
 
+Assert.searchResultsPage = function (sKey) {
+    $.delay(sleep);
+    //Verify the search page display properly
+    var searchResultsPageName = app.navigationBar().name();
+    assertEquals('"'+sKey+'"',searchResultsPageName);
+};
 
+//04-25-2014
+Assert.longtextSearchPageDisplay = function () {
+   $.delay(sleep);
+   assertTrue(app.mainWindow().collectionViews()[0].cells().length<=1);
+};
 
+//04-28-2014
+Assert.coatCategorySearchResultsPageDisplayedInList = function () {
+    $.delay(sleep);
+    var coatCategorySearchResultsPageDisplayedInList = app.mainWindow().navigationBar().staticTexts()[1].name();
+    assertEquals("搜尋上衣",coatCategorySearchResultsPageDisplayedInList);
+};

@@ -7,16 +7,10 @@ Assert.Tabbar = function () {
         "我的帳戶"
     ];
     $.delay(sleep);
-    for (var i = 0; i < 5; i++) {
-        tabBar.buttons()[i].tap();
+    for (var i = 0; i < 2; i++) {
         $.delay(sleep);
-        //$.log(app.navigationBar().name());
-        assertEquals(this.tabname[i], tabBar.buttons()[i].name());
-        if (i == 3)
-            assertEquals("購物車清單", app.navigationBar()
-                .name());
-        else
-            assertEquals(this.tabname[i], app.navigationBar()
-                .name());
-    }
+        checkInstanceExist(tBar.buttons()[i].tap);  
+        tBar.buttons()[i].tap();
+        assertEquals(this.tabname[i], tBar.buttons()[i].name()); 
+    }        
 };
