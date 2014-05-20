@@ -1,3 +1,5 @@
 test("[1952426] Bottom Tab Bar", function (target, app) {
-    Assert.Tabbar(target, app);
+    refreshTree();
+    Assert.Tabbar();
+    onHomeScreen(0);
 });

@@ -1,12 +1,10 @@
 Action.goMyAccount = function () {
     $.delay(sleep);
-    app.tabBar()
-        .buttons()[4].tap();
+    app.tabBar().buttons()[4].tap();
 };
 Action.tapLogout = function () {
     $.delay(sleep);
-    navBar.rightButton()
-        .tap();
+    navBar.rightButton().tap();
     $.delay(sleep);
     actionSheet.buttons()[0].tap();
 };

@@ -1,9 +1,8 @@
-Action.goSideBar = function (target, app) {
-    var mainWindow = app.mainWindow();
-    var navBar = app.navigationBar();
-    $.delay(sleep);
-    //Discovery stream
-    app.tabBar().buttons()[0].tap();
+Action.goSideBar = function() {
     $.delay(sleep);
     navBar.buttons()[1].tap();
 };
+Action.exitSideBar = function() {
+    $.delay(sleep);
+    navBar.buttons()[1].tap();
+}

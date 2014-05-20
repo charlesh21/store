@@ -1,9 +1,8 @@
-Action.goSubcategory = function (target, app) {
+Action.goSubcategory = function() {
     $.delay(sleep);
     app.navigationBar().buttons()[1].tap();
 };
-Action.goCategorie = function (target, app) {
-    var mainWindow = app.mainWindow();
+Action.goCategorie = function () {
     $.delay(sleep);
     app.tabBar().buttons()[2].tap();
     $.delay(sleep);
@@ -84,5 +83,5 @@ Action.goSpecification = function () {
     navBar.rightButton()
         .tap();
     $.delay(sleep);
-    obj.scrollDowns(1);
+    scrollDowns(1);
 }

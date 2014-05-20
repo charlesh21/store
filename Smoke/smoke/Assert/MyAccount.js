@@ -8,13 +8,11 @@ Assert.MyAccount = function () {
         "電子折價券"
     ];
     $.delay(sleep);
-    assertEquals(3, mainWindow.staticTexts()
-        .length);
+    assertEquals(4, mainWindow.staticTexts().length);
     for (var i = 0; i < 3; i++) {
         assertEquals(this.MyAccountName[i], mainWindow.staticTexts()[i].name());
     }
-    assertEquals(4, mainWindow.tableViews()[1].cells()
-        .length);
+    assertEquals(4, mainWindow.tableViews()[1].cells().length);
     assertEquals(this.MyAccountName[3], mainWindow.tableViews()[1].cells()[0].name());
     assertEquals(this.MyAccountName[4], mainWindow.tableViews()[1].cells()[1].name());
     assertEquals(this.MyAccountName[5], mainWindow.tableViews()[1].cells()[2].name());
@@ -30,11 +28,9 @@ Assert.Ecoupons = function () {
         "折抵金額：", "$300"
     ];
     $.delay(sleep);
-    assertEquals(2, mainWindow.scrollViews()[0].webViews()[0].staticTexts()
-        .length);
+    assertEquals(2, mainWindow.scrollViews()[0].webViews()[0].staticTexts().length);
     assertEquals(this.EcouponsName[0], mainWindow.scrollViews()[0].webViews()[0].staticTexts()[0].name());
-    assertEquals(5, mainWindow.scrollViews()[0].webViews()[0].links()
-        .length);
+    assertEquals(5, mainWindow.scrollViews()[0].webViews()[0].links().length);
     assertEquals(this.EcouponsName[1], mainWindow.scrollViews()[0].webViews()[0].links()[1].name());
     assertEquals(this.EcouponsName[2], mainWindow.scrollViews()[0].webViews()[0].links()[2].name());
     assertEquals(this.EcouponsName[3], mainWindow.scrollViews()[0].webViews()[0].staticTexts()[1].name());
@@ -54,8 +50,7 @@ Assert.Order = function () {
     ];
     $.delay(sleep);
     assertEquals(this.OrderName[0], mainWindow.scrollViews()[0].webViews()[0].staticTexts()[0].name());
-    assertEquals(33, mainWindow.scrollViews()[0].webViews()[0].links()
-        .length);
+    assertEquals(33, mainWindow.scrollViews()[0].webViews()[0].links().length);
     assertEquals(this.OrderName[1], mainWindow.scrollViews()[0].webViews()[0].links()[0].name());
     assertEquals(this.OrderName[2], mainWindow.scrollViews()[0].webViews()[0].links()[1].name());
     assertEquals(this.OrderName[3], mainWindow.scrollViews()[0].webViews()[0].links()[2].name());
@@ -69,11 +64,9 @@ Assert.ItemCollection = function () {
         "$ 399"
     ];
     $.delay(6);
-    assertEquals(18, mainWindow.collectionViews()[0].cells()
-        .length);
+    assertEquals(18, mainWindow.collectionViews()[0].cells().length);
     assertEquals(this.ProductCollectionName[0], mainWindow.collectionViews()[0].cells()[0].name());
-    assertEquals(4, mainWindow.collectionViews()[0].cells()[0].staticTexts()
-        .length);
+    assertEquals(4, mainWindow.collectionViews()[0].cells()[0].staticTexts().length);
     assertEquals(this.ProductCollectionName[1], mainWindow.collectionViews()[0].cells()[0].staticTexts()[2].name());
     assertEquals(this.ProductCollectionName[2], mainWindow.collectionViews()[0].cells()[0].staticTexts()[3].name());
 };
