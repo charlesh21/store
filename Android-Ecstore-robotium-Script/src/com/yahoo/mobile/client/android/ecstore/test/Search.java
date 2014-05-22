@@ -12,7 +12,7 @@ import com.yahoo.mobile.client.android.ecstore.Assert.Assert;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class Search extends ActivityInstrumentationTestCase2 {
-	private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME = "com.yahoo.mobile.client.android.ecstore.ui.ECSplashActivity";
+	private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME = "com.yahoo.mobile.client.android.ecstore.ui.ECStoreActivity";
 	private static Class launcherActivityClass;
     private Solo solo;
     static {
@@ -815,6 +815,9 @@ public class Search extends ActivityInstrumentationTestCase2 {
 	   
 		Assert.noResultDisplay(solo);
     
+    }
+    public void finish() {
+        System.exit(0);
     }
 	
 }

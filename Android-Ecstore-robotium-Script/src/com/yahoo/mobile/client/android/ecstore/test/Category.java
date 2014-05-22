@@ -19,7 +19,7 @@ import com.yahoo.mobile.client.android.ecstore.Assert.Assert;
 @SuppressLint("NewApi")
 @SuppressWarnings("rawtypes")
 public class Category extends ActivityInstrumentationTestCase2 {
-	private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME = "com.yahoo.mobile.client.android.ecstore.ui.ECSplashActivity";
+	private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME = "com.yahoo.mobile.client.android.ecstore.ui.ECStoreActivity";
 	private static Class launcherActivityClass;
 	private Solo solo;
 	static {
@@ -45,14 +45,19 @@ public class Category extends ActivityInstrumentationTestCase2 {
 
 	@Override
 	public void tearDown() throws Exception {
-  
-			solo.finishOpenedActivities();
+		try {
+   		 //Robotium will finish all the activities that have been opened
+   		 solo.finalize();
+   		 } catch (Throwable e) {
+   		 e.printStackTrace();
+   		 }
+   		solo.finishOpenedActivities();
+   		super.tearDown();
 			 
 	}
-	
-	
-	
-	
+	public void finish() {
+        System.exit(0);
+    }
 	//Go to clothes page.
 	public void enterClassification() throws Exception{
 		
